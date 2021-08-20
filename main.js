@@ -12,7 +12,8 @@ $(document).ready(function () {
     floorPath.on('mouseover', function () {
         floorPath.removeClass('current-floor');
         currentFloor = $(this).attr('data-floor');
-        $('.floor').text(currentFloor);
+        usCurrentFloor = currentFloor.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
+        $(`[data-floor=${usCurrentFloor}]`).toggleClass('current-floor');
     });
 
     modalCloseButton.on('click', toggleModal);
